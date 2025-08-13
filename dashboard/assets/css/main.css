@@ -1,0 +1,633 @@
+/* Main Stylesheet for Performance Championship Dashboard */
+
+:root {
+    /* Brand Colors */
+    --snapdragon-red: #e31837;
+    --snapdragon-dark: #b01129;
+    --intel-blue: #0071c5;
+    --intel-dark: #004a86;
+    
+    /* UI Colors */
+    --bg-primary: #0a0e1a;
+    --bg-secondary: #151923;
+    --bg-card: #1e2330;
+    --border-color: #2a3142;
+    --text-primary: #ffffff;
+    --text-secondary: #b4b9c4;
+    --accent-gold: #ffd700;
+    --success-green: #00ff41;
+    --warning-orange: #ff9500;
+    --danger-red: #ff3838;
+    
+    /* Gradients */
+    --gradient-snapdragon: linear-gradient(135deg, #e31837 0%, #ff4458 100%);
+    --gradient-intel: linear-gradient(135deg, #0071c5 0%, #00a2ff 100%);
+    --gradient-dark: linear-gradient(180deg, #0a0e1a 0%, #151923 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    text-align: center;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loading-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--snapdragon-red), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.loading-tagline {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.loading-bar {
+    width: 300px;
+    height: 4px;
+    background: var(--bg-card);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-progress {
+    height: 100%;
+    background: var(--gradient-snapdragon);
+    animation: loading-animation 2s ease-in-out infinite;
+}
+
+@keyframes loading-animation {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+.loading-message {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+/* Header */
+.championship-header {
+    background: linear-gradient(180deg, #1e2330 0%, var(--bg-secondary) 100%);
+    border-bottom: 2px solid var(--border-color);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.qualcomm-branding {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand-logo {
+    height: 30px;
+}
+
+.brand-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--snapdragon-red);
+}
+
+.championship-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--accent-gold), var(--text-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-icon {
+    display: inline-block;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.championship-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    letter-spacing: 1px;
+}
+
+/* Device Cards */
+.device-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 450px;
+}
+
+.device-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-snapdragon);
+}
+
+.intel-card::before {
+    background: var(--gradient-intel);
+}
+
+.device-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.device-header {
+    margin-bottom: 1.5rem;
+}
+
+.team-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.team-future {
+    background: var(--gradient-snapdragon);
+    color: white;
+}
+
+.team-legacy {
+    background: var(--gradient-intel);
+    color: white;
+}
+
+.device-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.device-tagline {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.device-status {
+    margin-bottom: 1.5rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.status-indicator i {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.metric-box {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.metric-box:hover {
+    background: var(--bg-primary);
+    transform: scale(1.05);
+}
+
+.metric-icon {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+}
+
+.metric-label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* NPU Power Meter */
+.npu-power-meter {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.power-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.power-bar {
+    background: var(--bg-primary);
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.power-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 1s ease;
+    position: relative;
+}
+
+.snapdragon-power {
+    background: var(--gradient-snapdragon);
+}
+
+.intel-power {
+    background: var(--gradient-intel);
+}
+
+.power-text {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.power-caption {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Control Panel */
+.control-panel {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.panel-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-gold);
+}
+
+.scenario-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.btn-scenario {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-scenario:hover {
+    background: var(--gradient-snapdragon);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(227, 24, 55, 0.3);
+}
+
+.btn-scenario i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+}
+
+.btn-scenario span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-scenario small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Commentary Panel */
+.commentary-panel {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.commentary-feed {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.commentary-entry {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-gold);
+    animation: slideInLeft 0.5s ease;
+}
+
+.commentary-time {
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+}
+
+.commentary-text {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* Chart Panel */
+.chart-panel {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#performanceChart {
+    padding: 1rem;
+}
+
+/* Hall of Fame */
+.hall-of-fame {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.hall-title {
+    text-align: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.records-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.record-item {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.record-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.record-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.record-label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.record-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* Victory Modal */
+.victory-content {
+    background: var(--bg-card);
+    border: 2px solid var(--accent-gold);
+    border-radius: 12px;
+}
+
+.victory-animation i {
+    animation: bounce 1s ease infinite;
+}
+
+.victory-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.victory-device {
+    font-size: 2rem;
+    margin: 1rem 0;
+    background: var(--gradient-snapdragon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.victory-message {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 1rem 0 2rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Professional Mode */
+body.professional-mode {
+    --accent-gold: #808080;
+}
+
+body.professional-mode .loading-title,
+body.professional-mode .championship-title {
+    background: linear-gradient(90deg, #808080, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.professional-mode .btn-scenario:hover {
+    background: var(--bg-primary);
+    box-shadow: none;
+}
+
+body.professional-mode * {
+    animation: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .championship-title {
+        font-size: 1.5rem;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scenario-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .records-grid {
+        grid-template-columns: 1fr;
+    }
+}

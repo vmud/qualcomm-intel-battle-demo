@@ -1,0 +1,15 @@
+{
+  "platform": "intel",
+  "format": "pytorch",
+  "precision": "fp32",
+  "optimization": "none",
+  "model_id": "stable-diffusion-v1-5-pytorch",
+  "components": [
+    "text_encoder",
+    "unet",
+    "vae",
+    "safety_checker",
+    "feature_extractor"
+  ],
+  "created": "2025-08-12 20:07:42"
+}

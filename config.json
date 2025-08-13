@@ -1,0 +1,130 @@
+{
+    "server": {
+        "host": "0.0.0.0",
+        "port": 5000,
+        "debug": false,
+        "cors_origins": ["http://localhost:5000", "http://192.168.100.5:5000"]
+    },
+  "network": {
+    "server_ip": "192.168.100.5",
+    "server_port": 5001,
+    "snapdragon_ip": "192.168.100.10",
+    "intel_ip": "192.168.100.20"
+  },
+    "devices": {
+        "snapdragon": {
+            "name": "Snapdragon X Elite",
+            "model": "Samsung Galaxy Book4 Edge",
+            "base_cpu": 15,
+            "base_temp": 35,
+            "battery_drain_rate": 0.5,
+            "ai_tops": 45,
+            "specs": {
+                "cpu": "Snapdragon X Elite 3.4GHz",
+                "npu": "45 TOPS",
+                "process": "4nm"
+            },
+            "color": "#e31837",
+            "team": "TEAM FUTURE"
+        },
+        "intel": {
+            "name": "Intel Core Ultra 7",
+            "model": "Lenovo Yoga 7i",
+            "base_cpu": 25,
+            "base_temp": 45,
+            "battery_drain_rate": 2.0,
+            "ai_tops": 11,
+            "specs": {
+                "cpu": "Intel Core Ultra 7 155U",
+                "npu": "11 TOPS",
+                "process": "Intel 7 (10nm)"
+            },
+            "color": "#0071c5",
+            "team": "TEAM LEGACY"
+        }
+    },
+    "simulation": {
+        "update_interval": 1.0,
+        "metrics": ["cpu", "gpu", "battery", "temperature", "memory", "fan"],
+        "workload_profiles": {
+            "idle": {"cpu_multiplier": 0.5, "temp_increase": 0},
+            "normal": {"cpu_multiplier": 1.0, "temp_increase": 5},
+            "high": {"cpu_multiplier": 2.0, "temp_increase": 15},
+            "stress": {"cpu_multiplier": 3.0, "temp_increase": 25}
+        }
+    },
+    "ui": {
+        "theme": "championship",
+        "animations_enabled": true,
+        "sound_effects": true,
+        "victory_celebration": true,
+        "chart_update_rate": 1000
+    },
+    "demo_phases": [
+        {
+            "name": "AI Performance Battle",
+            "duration": 240,
+            "type": "sd_generation",
+            "description": "Real-time AI image generation race"
+        },
+        {
+            "name": "Battery Efficiency Test",
+            "duration": 180,
+            "type": "battery_stress",
+            "description": "High-performance workload battery drain comparison"
+        },
+        {
+            "name": "Thermal Performance",
+            "duration": 180,
+            "type": "thermal_stress",
+            "description": "Sustained workload temperature management"
+        }
+    ],
+    "platform_configs": {
+        "snapdragon": {
+            "name": "Snapdragon X Elite",
+            "type": "snapdragon",
+            "capabilities": {
+                "npu": true,
+                "ai_acceleration": true,
+                "power_efficiency": "excellent"
+            }
+        },
+        "intel": {
+            "name": "Intel Core Ultra 9",
+            "type": "intel",
+            "capabilities": {
+                "npu": false,
+                "ai_acceleration": false,
+                "power_efficiency": "standard"
+            }
+        }
+    },
+    "demo_scenarios": {
+        "ai_showdown": {
+            "duration": 240,
+            "prompt": "A futuristic cityscape at sunset with flying cars, ultra detailed, 4K quality",
+            "steps": 20,
+            "expected_times": {
+                "snapdragon": [8, 12],
+                "intel": [25, 35]
+            }
+        },
+        "battery_race": {
+            "duration": 180,
+            "workload": "cpu_gpu_stress",
+            "expected_drain": {
+                "snapdragon": [2, 3],
+                "intel": [5, 7]
+            }
+        },
+        "thermal_test": {
+            "duration": 180,
+            "workload": "sustained_stress",
+            "expected_temps": {
+                "snapdragon": [45, 50],
+                "intel": [70, 85]
+            }
+        }
+    }
+}

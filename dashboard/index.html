@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Championship 2025 | Snapdragon vs Intel</title>
+    
+    <!-- External Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/animations.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="championship-logo">
+                <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
+            </div>
+            <h2 class="loading-title">PERFORMANCE CHAMPIONSHIP 2025</h2>
+            <p class="loading-tagline">"Where milliseconds matter and fans stay silent"™</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p id="loadingMessage" class="loading-message mt-3">Initializing quantum advantage...</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="mainDashboard" class="dashboard-container" style="display: none;">
+        <!-- Header -->
+        <header class="championship-header">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="qualcomm-branding">
+                            <img src="assets/images/qualcomm-logo.svg" alt="Qualcomm" class="brand-logo" onerror="this.style.display='none'">
+                            <span class="brand-text">QUALCOMM</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h1 class="championship-title">
+                            <span class="title-icon">⚡</span>
+                            PERFORMANCE CHAMPIONSHIP 2025
+                            <span class="title-icon">⚡</span>
+                        </h1>
+                        <p class="championship-subtitle">The Ultimate Processor Showdown</p>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <button id="btnProfessionalMode" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-briefcase"></i> Professional Mode
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Arena -->
+        <div class="container-fluid mt-4">
+            <!-- Device Status Cards -->
+            <div class="row mb-4">
+                <!-- Snapdragon Card -->
+                <div class="col-md-6">
+                    <div class="device-card snapdragon-card">
+                        <div class="device-header">
+                            <div class="team-badge team-future">
+                                <i class="fas fa-rocket"></i> TEAM FUTURE
+                            </div>
+                            <h3 class="device-name">Snapdragon X Elite</h3>
+                            <p class="device-tagline">"Actually 4nm"</p>
+                        </div>
+                        
+                        <div class="device-status">
+                            <div class="status-indicator" id="snapdragonStatus">
+                                <i class="fas fa-circle text-success"></i>
+                                <span class="status-text">Ready to Dominate</span>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-microchip"></i></div>
+                                <div class="metric-value" id="snapdragonCpu">0%</div>
+                                <div class="metric-label">CPU</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-battery-full"></i></div>
+                                <div class="metric-value" id="snapdragonBattery">100%</div>
+                                <div class="metric-label">Battery</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-thermometer-half"></i></div>
+                                <div class="metric-value" id="snapdragonTemp">35°C</div>
+                                <div class="metric-label">Temperature</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-fan"></i></div>
+                                <div class="metric-value" id="snapdragonFan">Silent</div>
+                                <div class="metric-label">Fan Speed</div>
+                            </div>
+                        </div>
+
+                        <div class="npu-power-meter mt-3">
+                            <div class="power-label">NPU POWER LEVEL</div>
+                            <div class="power-bar">
+                                <div class="power-fill snapdragon-power" style="width: 100%;">
+                                    <span class="power-text">45 TOPS</span>
+                                </div>
+                            </div>
+                            <div class="power-caption">"Not even my final form"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intel Card -->
+                <div class="col-md-6">
+                    <div class="device-card intel-card">
+                        <div class="device-header">
+                            <div class="team-badge team-legacy">
+                                <i class="fas fa-hourglass-half"></i> TEAM LEGACY
+                            </div>
+                            <h3 class="device-name">Intel Core Ultra 7</h3>
+                            <p class="device-tagline">"10nm++++ (Intel 7)"</p>
+                        </div>
+                        
+                        <div class="device-status">
+                            <div class="status-indicator" id="intelStatus">
+                                <i class="fas fa-circle text-warning"></i>
+                                <span class="status-text">Warming Up</span>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-microchip"></i></div>
+                                <div class="metric-value" id="intelCpu">0%</div>
+                                <div class="metric-label">CPU</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-battery-three-quarters"></i></div>
+                                <div class="metric-value" id="intelBattery">100%</div>
+                                <div class="metric-label">Battery</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-thermometer-full"></i></div>
+                                <div class="metric-value" id="intelTemp">45°C</div>
+                                <div class="metric-label">Temperature</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-icon"><i class="fas fa-fan fa-spin"></i></div>
+                                <div class="metric-value" id="intelFan">1500 RPM</div>
+                                <div class="metric-label">Fan Speed</div>
+                            </div>
+                        </div>
+
+                        <div class="npu-power-meter mt-3">
+                            <div class="power-label">NPU POWER LEVEL</div>
+                            <div class="power-bar">
+                                <div class="power-fill intel-power" style="width: 24%;">
+                                    <span class="power-text">11 TOPS</span>
+                                </div>
+                            </div>
+                            <div class="power-caption">"It's trying its best"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="control-panel">
+                        <h4 class="panel-title">
+                            <i class="fas fa-gamepad"></i> DEMO SCENARIOS
+                        </h4>
+                        <div class="scenario-buttons">
+                            <button class="btn btn-scenario" data-scenario="ai_showdown">
+                                <i class="fas fa-brain"></i>
+                                <span>AI Performance Showdown</span>
+                                <small>Stable Diffusion Battle</small>
+                            </button>
+                            <button class="btn btn-scenario" data-scenario="battery_race">
+                                <i class="fas fa-battery-full"></i>
+                                <span>Battery Efficiency Race</span>
+                                <small>Power Consumption Test</small>
+                            </button>
+                            <button class="btn btn-scenario" data-scenario="thermal_test">
+                                <i class="fas fa-fire"></i>
+                                <span>Thermal Performance Test</span>
+                                <small>Heat & Noise Challenge</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Commentary Feed -->
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <div class="commentary-panel">
+                        <div class="panel-header">
+                            <h4><i class="fas fa-microphone"></i> LIVE PERFORMANCE FEED</h4>
+                        </div>
+                        <div id="commentaryFeed" class="commentary-feed">
+                            <div class="commentary-entry">
+                                <span class="commentary-time">SYSTEM</span>
+                                <span class="commentary-text">Championship arena initialized. Awaiting competitors...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Chart -->
+                <div class="col-md-4">
+                    <div class="chart-panel">
+                        <div class="panel-header">
+                            <h4><i class="fas fa-chart-line"></i> PERFORMANCE METRICS</h4>
+                        </div>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hall of Performance -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="hall-of-fame">
+                        <h4 class="hall-title">
+                            <i class="fas fa-trophy"></i> HALL OF PERFORMANCE <i class="fas fa-trophy"></i>
+                        </h4>
+                        <div class="records-grid">
+                            <div class="record-item">
+                                <div class="record-icon text-success"><i class="fas fa-bolt"></i></div>
+                                <div class="record-label">Fastest AI Generation</div>
+                                <div class="record-value">Snapdragon - 7.2s ⚡</div>
+                            </div>
+                            <div class="record-item">
+                                <div class="record-icon text-danger"><i class="fas fa-turtle"></i></div>
+                                <div class="record-label">Slowest AI Generation</div>
+                                <div class="record-value">Intel - 34.6s 🐌</div>
+                            </div>
+                            <div class="record-item">
+                                <div class="record-icon text-danger"><i class="fas fa-fire-alt"></i></div>
+                                <div class="record-label">Highest Temperature</div>
+                                <div class="record-value">Intel - 95°C 🌋</div>
+                            </div>
+                            <div class="record-item">
+                                <div class="record-icon text-info"><i class="fas fa-snowflake"></i></div>
+                                <div class="record-label">Coolest Under Pressure</div>
+                                <div class="record-value">Snapdragon - 38°C 🧊</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Victory Modal -->
+    <div class="modal fade" id="victoryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content victory-content">
+                <div class="modal-body text-center">
+                    <div class="victory-animation">
+                        <i class="fas fa-trophy fa-5x text-warning mb-3"></i>
+                    </div>
+                    <h2 class="victory-title">VICTORY!</h2>
+                    <h3 id="victoryDevice" class="victory-device">Snapdragon X Elite</h3>
+                    <p id="victoryMessage" class="victory-message"></p>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue Championship</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.6.2/dist/countUp.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

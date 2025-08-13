@@ -1,0 +1,413 @@
+/* Animation Styles for Performance Championship Dashboard */
+
+/* Particle Effects */
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Glow Effects */
+.glow-effect {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px var(--snapdragon-red);
+    }
+    to {
+        box-shadow: 0 0 20px var(--snapdragon-red), 0 0 30px var(--snapdragon-red);
+    }
+}
+
+/* Pulse Effects */
+.pulse-animation {
+    animation: pulse-expand 1.5s ease-out infinite;
+}
+
+@keyframes pulse-expand {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Victory Animations */
+.victory-enter {
+    animation: victorySlide 0.5s ease-out;
+}
+
+@keyframes victorySlide {
+    from {
+        transform: translateY(-50px) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Metric Update Animation */
+.metric-update {
+    animation: metricPulse 0.5s ease;
+}
+
+@keyframes metricPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        color: var(--accent-gold);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Device Card Animations */
+.device-card.active {
+    animation: deviceActive 2s ease-in-out infinite;
+}
+
+@keyframes deviceActive {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(227, 24, 55, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(227, 24, 55, 0.8);
+    }
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Text Typing Effect */
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid var(--accent-gold);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent-gold); }
+}
+
+/* Heat Warning Animation */
+.heat-warning {
+    animation: heatPulse 1s ease-in-out infinite;
+}
+
+@keyframes heatPulse {
+    0%, 100% {
+        color: var(--danger-red);
+        transform: scale(1);
+    }
+    50% {
+        color: #ff6b6b;
+        transform: scale(1.1);
+    }
+}
+
+/* Fan Spin Animation */
+.fan-spinning {
+    animation: fanSpin 1s linear infinite;
+}
+
+@keyframes fanSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Battery Drain Animation */
+.battery-draining {
+    animation: batteryFlash 2s ease-in-out infinite;
+}
+
+@keyframes batteryFlash {
+    0%, 100% {
+        color: var(--warning-orange);
+    }
+    50% {
+        color: var(--danger-red);
+    }
+}
+
+/* NPU Power Animation */
+.npu-charging {
+    background: linear-gradient(270deg, var(--snapdragon-red), var(--accent-gold), var(--snapdragon-red));
+    background-size: 200% 200%;
+    animation: npuGradient 3s ease infinite;
+}
+
+@keyframes npuGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Commentary Slide */
+.commentary-new {
+    animation: commentarySlide 0.5s ease-out;
+}
+
+@keyframes commentarySlide {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Connection Status */
+.connection-pulse {
+    position: relative;
+}
+
+.connection-pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: connectionRipple 2s ease-out infinite;
+}
+
+@keyframes connectionRipple {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Test Progress Animation */
+.progress-bar-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Confetti Effect */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-gold);
+    animation: confettiFall 3s linear;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Shake Animation for Errors */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Fade Transitions */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Scale Animations */
+.scale-in {
+    animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Rotate Animation */
+.rotate-continuous {
+    animation: rotateContinuous 2s linear infinite;
+}
+
+@keyframes rotateContinuous {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Alert Flash */
+.alert-flash {
+    animation: alertFlash 0.5s ease-in-out 3;
+}
+
+@keyframes alertFlash {
+    0%, 100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgba(255, 0, 0, 0.2);
+    }
+}
+
+/* Success Checkmark */
+.checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: var(--success-green);
+    stroke-miterlimit: 10;
+    animation: checkmarkScale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--success-green);
+    animation: checkmarkStroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: checkmarkStroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes checkmarkStroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes checkmarkScale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "platform": "snapdragon",
+  "format": "onnx",
+  "precision": "fp16",
+  "optimization": "directml",
+  "model_id": "stable-diffusion-v1-5-onnx",
+  "components": [
+    "text_encoder",
+    "unet",
+    "vae_decoder",
+    "safety_checker"
+  ],
+  "created": "2025-08-12 20:07:42"
+}
